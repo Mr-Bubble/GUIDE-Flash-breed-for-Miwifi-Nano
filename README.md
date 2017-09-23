@@ -14,7 +14,7 @@ __老版固件进群下载： 299928214 （有福利）__ _秋大也在群里！
 
 ## 破译telnet
 
-### 首先登陆路由器管理界面192.168.31.1
+首先登陆路由器管理界面192.168.31.1
 
 ![picture1](https://github.com/edward-p/GUIDE-Flash-breed-for-Miwifi-Nano/raw/master/screenshots/Picture1.png)
 
@@ -32,17 +32,20 @@ admin为你的新管理密码和root密码
 
 回车以后网页显示`{"code":0}`就是成功了。
 
-和上面一样登陆路由器，把你浏览器中的/web/home#router替换成/api/xqnetwork/set_wifi_ap?ssid=tianbao&encryption=NONE&enctype=NONE&channel=1%3B%2Fusr%2Fsbin%2Ftelnetd
+和上面一样登陆路由器，把你浏览器中的`/web/home#router`替换成`/api/xqnetwork/set_wifi_ap?ssid=tianbao&encryption=NONE&enctype=NONE&channel=1%3B%2Fusr%2Fsbin%2Ftelnetd`
 然后等一会浏览器返回：
 
 ![picture4](https://github.com/edward-p/GUIDE-Flash-breed-for-Miwifi-Nano/raw/master/screenshots/Picture4.png)
 
 `{"msg":"未能连接到指定WiFi(Probe timeout)","code":1616}`
-这时候应该已经启动telnet了，telnet登陆路由吧(win10需控制面板添加telnet)
+这时候应该已经启动telnet了,telnet登陆路由吧(win10需控制面板添加telnet)
+
+## Telnet 登录路由器破解 SSH
 
 ![picture5](https://github.com/edward-p/GUIDE-Flash-breed-for-Miwifi-Nano/raw/master/screenshots/Picture5.png)
 
-然后用putty中文版1.0v；
+然后用putty中文版1.0v
+
 连接类型telnet 主机名称192.168.31.1
 
 ![picture6](https://github.com/edward-p/GUIDE-Flash-breed-for-Miwifi-Nano/raw/master/screenshots/Picture6.png)
@@ -55,7 +58,9 @@ admin为你的新管理密码和root密码
 
 ![picture8](https://github.com/edward-p/GUIDE-Flash-breed-for-Miwifi-Nano/raw/master/screenshots/Picture8.png)
 
-然后输入密码admin《linux这个登陆指令是不显示密码的你直接输入然后回车就行了》
+然后输入密码admin
+
+>linux这个登陆指令是不显示密码的你直接输入然后回车就行了
 
 得到这样一个界面
 
@@ -74,7 +79,7 @@ nvram set ssh_en=1; nvram commit
 这时候就可以用常用的__PuTTY__或者__WinSCP__登陆了。
 
 
-输入SSH和备份编程固件
+## 进入SSH和备份编程固件
 
 然后打开WINSCP文件协议SCP 主机名192.138.31.1 
 
@@ -142,6 +147,8 @@ PUTTY写入breed
 
 
 刷入后，机器会重新启动，固定电脑有线网卡的IP为192.168.1.100
+
+## 进入breed尽情刷机
 
 断电，用硬物顶住路由器set键开机，等到路由器闪的时候，松开reset键，电脑上在浏览器中输入192.168.1.1，就进入breed，在该控制台下就可以放心刷潘多拉等固件了！
 
