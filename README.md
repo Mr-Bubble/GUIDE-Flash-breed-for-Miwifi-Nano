@@ -12,7 +12,8 @@ __老版固件进群下载： 299928214 （有福利）__ _秋大也在群里！
 
 # 小米路由器青春版免拆机破译SSH刷入breed教程
 
-## 破译telnet
+## 0x01
+### 破译telnet
 
 首先登陆路由器管理界面192.168.31.1
 
@@ -40,7 +41,8 @@ admin为你的新管理密码和root密码
 `{"msg":"未能连接到指定WiFi(Probe timeout)","code":1616}`
 这时候应该已经启动telnet了,telnet登陆路由吧(win10需控制面板添加telnet)
 
-## Telnet 登录路由器破解 SSH
+## 0x02
+### Telnet 登录路由器破解 SSH
 
 ![picture5](https://github.com/edward-p/GUIDE-Flash-breed-for-Miwifi-Nano/raw/master/screenshots/Picture5.png)
 
@@ -66,6 +68,13 @@ admin为你的新管理密码和root密码
 
 ![picture9](https://github.com/edward-p/GUIDE-Flash-breed-for-Miwifi-Nano/raw/master/screenshots/Picture9.png)
 
+>如果你的路由器能上网，那么这里有更简便的办法，让你略过中间步骤（带你飞，看仔细啦！），直接跳到步骤0x05。
+>具体步骤如下：
+>-	依次输入指令:
+>	-	`wget -N --no-check-certificate https://breed.hackpascal.net/breed-mt7688-reset38.bin /tmp/breed.bin`
+>	-	`mtd -r write /tmp/breed.bin Bootloader`
+>-	机器会重新启动，直接跳到步骤0x05！
+
 依次输入指令:
 
 ``` bash
@@ -78,8 +87,8 @@ nvram set ssh_en=1; nvram commit
 
 这时候就可以用常用的__PuTTY__或者__WinSCP__登陆了。
 
-
-## 进入SSH和备份编程固件
+## 0x03
+### 进入SSH和备份编程固件（备份可选，可跳过到下一节“刷入breed”，刷完Breed记得在Breed里备份编程器固件）
 
 然后打开WINSCP文件协议SCP 主机名192.138.31.1 
 
@@ -134,7 +143,9 @@ dd if=/dev/mtd9 of=/tmp/crash.bin
 dd if=/dev/mtd10 of=/tmp/firmware.bin
 ```
 
-## 刷入reed
+## 0x04
+### 刷入Breed
+
 WINSCP  选择SCP协议 复制breed.bin 到/tmp
 
 ![picture18](https://github.com/edward-p/GUIDE-Flash-breed-for-Miwifi-Nano/raw/master/screenshots/Picture18.png)
@@ -148,8 +159,17 @@ PUTTY写入breed
 
 刷入后，机器会重新启动，固定电脑有线网卡的IP为192.168.1.100
 
-## 进入breed尽情刷机
+## 0x05
+### 进入breed备份固件并尽情刷机
 
 断电，用硬物顶住路由器set键开机，等到路由器闪的时候，松开reset键，电脑上在浏览器中输入192.168.1.1，就进入breed，在该控制台下就可以放心刷潘多拉等固件了！
 
 ![picture20](https://github.com/edward-p/GUIDE-Flash-breed-for-Miwifi-Nano/raw/master/screenshots/Picture20.png)
+
+__如果你未备份固件，请在这里先备份编程器固件(16Mb)！！！__
+
+__如果你未备份固件，请在这里先备份编程器固件(16Mb)！！！__
+
+__如果你未备份固件，请在这里先备份编程器固件(16Mb)！！！__
+
+_重要的事情说三遍_
