@@ -68,12 +68,12 @@ admin为你的新管理密码和root密码
 
 ![picture9](https://github.com/edward-p/GUIDE-Flash-breed-for-Miwifi-Nano/raw/master/screenshots/Picture9.png)
 
->如果你的路由器能上网，那么这里有更简便的办法，让你略过中间步骤（带你飞，看仔细啦！），直接跳到步骤0x05。
+>如果你的路由器能上网，那么这里有更简便的办法，让你略过中间步骤（带你飞，看仔细啦！）
 >具体步骤如下：
->-	依次输入指令:
->	-	`wget -N --no-check-certificate https://breed.hackpascal.net/breed-mt7688-reset38.bin /tmp/breed.bin`
->	-	`mtd -r write /tmp/breed.bin Bootloader`
->-	机器会重新启动，直接跳到步骤0x05！
+>- 依次输入指令:
+> - `wget -N --no-check-certificate https://breed.hackpascal.net/breed-mt7688-reset38.bin /tmp/breed.bin`
+> - `mtd -r write /tmp/breed.bin Bootloader`
+>- 机器会重新启动，直接跳到步骤0x05！
 
 依次输入指令:
 
